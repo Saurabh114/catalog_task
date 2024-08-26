@@ -10,7 +10,7 @@ const Tabs = ({ activeTab, setActiveTab }) => {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          padding: "20px 40px",
+          padding: "20px 0px",
           borderBottom: "1px solid #EAEAEA",
         }}
       >
@@ -21,8 +21,11 @@ const Tabs = ({ activeTab, setActiveTab }) => {
               style={{
                 marginRight: "20px",
                 cursor: "pointer",
-                borderBottom: activeTab === tab ? "2px solid #4A90E2" : "none",
+                fontWeight: activeTab === tab ? "700" : "500",
+                color: activeTab === tab ? "#1A243A" : "#6F7177",
+                borderBottom: activeTab === tab ? "3px solid #4B40EE" : "none",
                 paddingBottom: activeTab === tab ? "5px" : "0",
+                transition: "all ease-in-out 0.3s"
               }}
               onClick={() => setActiveTab(tab)}
             >

@@ -9,7 +9,7 @@ const Navbar = () => {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          padding: "20px 40px",
+          padding: "20px 0px",
           borderBottom: "1px solid #EAEAEA",
         }}
       >

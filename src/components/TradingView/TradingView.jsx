@@ -12,14 +12,16 @@ function TradingViewWidget() {
     script.async = true;
     script.innerHTML = `
         {
-          "autosize": true,
+          "width": "100%",
+          "height": "610",
           "symbol": "NASDAQ:AAPL",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
           "style": "2",
-          "hide_top_toolbar": true,
-          "save_image": false,
+          "locale": "en",
+          "allow_symbol_change": true,
+          "calendar": false,
           "support_host": "https://www.tradingview.com"
         }`;
     container.current.appendChild(script);
@@ -27,18 +29,10 @@ function TradingViewWidget() {
 
   return (
     <>
-      
-      <div
-        className="tradingview-widget-container"
-        ref={container}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <div
-          className="tradingview-widget-container__widget"
-          style={{ height: "calc(100% - 32px)", width: "100%" }}
-        ></div>
-
-      </div>
+    <h2 className="text-3xl font-semibold my-5" >Trading View Chart</h2>
+    <div className="tradingview-widget-container" ref={container}>
+      <div className="tradingview-widget-container__widget"></div>
+    </div>
     </>
   );
 }
