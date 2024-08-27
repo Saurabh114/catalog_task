@@ -11,12 +11,6 @@ import {
   Legend,
   Filler,
 } from "chart.js";
-import {
-  FaExpandArrowsAlt,
-  FaCompressArrowsAlt,
-  FaArrowUp,
-  FaArrowDown,
-} from "react-icons/fa";
 import Tabs from "./../Tabs/Tabs";
 
 import Icon1 from "../../assets/icon.png";
@@ -47,6 +41,9 @@ const StockMarketChart = () => {
   });
   const [finalValue, setFinalValue] = useState(null);
 
+
+  // Generating demo data 
+
   useEffect(() => {
     const fetchData = async () => {
       const data = generateDummyData(timeframe);
@@ -56,6 +53,8 @@ const StockMarketChart = () => {
     };
     fetchData();
   }, [timeframe]);
+
+  // Definig the time span filter buttons
 
   const generateDummyData = (timeframe) => {
     const labels = [];
@@ -90,6 +89,8 @@ const StockMarketChart = () => {
     return { labels, data };
   };
 
+  // Calculated the difference between the current and past value 
+
   const calculateMarketDifference = (data) => {
     if (data && data.length > 1) {
       const startValue = data[0];
@@ -102,6 +103,9 @@ const StockMarketChart = () => {
       });
     }
   };
+
+
+  // Chart Styling
 
   const options = {
     responsive: true,
@@ -181,6 +185,8 @@ const StockMarketChart = () => {
     },
   };
 
+  // Label and data representation
+  
   const data = {
     labels: chartData?.labels || [],
     datasets: [
@@ -223,9 +229,9 @@ const StockMarketChart = () => {
         {marketDifference && (
           <div className=" mt-2 ml-2 px-2 py-1 rounded flex items-center ">
             {parseFloat(marketDifference.percent) >= 0 ? (
-              <FaArrowUp className="mr-1 text-green-700" />
+              <h2 className="mr-1 text-2xl font-bold text-green-700"> + </h2>
             ) : (
-              <FaArrowDown className="mr-1 text-red-700" />
+              <h2 className="mr-1 text-2xl font-bold text-red-700" > - </h2>
             )}
             <span
               className={`font-bold ${

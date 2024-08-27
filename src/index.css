@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.chart-container {
+    width: 95%;
+    padding-right: 150px;
+}
 
 .chart-container canvas {
-    width: 80% !important;
+    width: 100% !important;
 }
